@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Start Your Trip - Mafiya Holidays</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <div class="bg-particles">
+        <div class="particle" style="width: 120px; height: 120px; top: 15%; left: 5%; animation-delay: -2s;"></div>
+        <div class="particle" style="width: 180px; height: 180px; top: 70%; left: 85%; animation-delay: -7s;"></div>
+        <div class="particle" style="width: 90px; height: 90px; top: 30%; left: 60%; animation-delay: -12s;"></div>
+    </div>
+    <div class="form-container">
+        <header class="header-section animate-fade-in">
+            <div class="logo-container">
+                <img src="mafiaholiday_logo.jpeg" alt="Mafiya Holidays Logo" onerror="this.src='https://via.placeholder.com/150?text=MAFIYA+HOLIDAYS'">
+            </div>
+            <h2>Start Your Trip</h2>
+            <p>Fill in the details to explore amazing destinations</p>
+        </header>
+
+        <section class="form-card animate-fade-in">
+            <form id="tripForm" class="form-grid">
+                <div class="form-group">
+                    <label for="groupName">Group Name</label>
+                    <input type="text" id="groupName" name="groupName" required placeholder="Enter group name">
+                </div>
+                <div class="form-group">
+                    <label for="collegeName">College Name</label>
+                    <input type="text" id="collegeName" name="collegeName" required placeholder="Enter college name">
+                </div>
+                <div class="form-group full-width">
+                    <label for="userEmail">Gmail Address</label>
+                    <input type="email" id="userEmail" name="userEmail" required placeholder="example@gmail.com">
+                </div>
+                <div class="form-group full-width">
+                    <label for="userName">Your Name</label>
+                    <input type="text" id="userName" name="userName" required placeholder="Enter your full name">
+                </div>
+                <div class="form-group">
+                    <label for="fromLocation">From Location</label>
+                    <input type="text" id="fromLocation" name="fromLocation" required placeholder="City or airport">
+                </div>
+                <div class="form-group">
+                    <label for="toLocation">To Location</label>
+                    <input type="text" id="toLocation" name="toLocation" required placeholder="Destination">
+                </div>
+                <div class="form-group full-width">
+                    <label for="tripType">Trip Type</label>
+                    <select id="tripType" name="tripType" required>
+                        <option value="" disabled selected>Select trip type</option>
+                        <option value="School">School</option>
+                        <option value="College">College</option>
+                        <option value="Corporate">Corporate</option>
+                        <option value="Family">Family</option>
+                        <option value="Devotional">Devotional</option>
+                        <option value="Others">Others</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="membersCount">Members</label>
+                    <input type="number" id="membersCount" name="membersCount" min="1" value="1" required>
+                </div>
+                <div class="form-group">
+                    <label for="staffCount">Staff</label>
+                    <input type="number" id="staffCount" name="staffCount" min="0" value="0" required>
+                </div>
+                <div class="form-group">
+                    <label for="durationDays">Duration (Days)</label>
+                    <input type="number" id="durationDays" name="durationDays" min="1" value="1" required>
+                </div>
+                <div class="form-group">
+                    <label for="mobileNumber">Mobile Number</label>
+                    <input type="tel" id="mobileNumber" name="mobileNumber" pattern="[0-9]{10}" required placeholder="10 digits">
+                </div>
+                <button type="submit" class="submit-btn full-width">EXPLORE DESTINATIONS</button>
+            </form>
+        </section>
+
+        <footer class="footer-contact animate-fade-in">
+            <p>Ready to Fly?</p>
+            <div class="contact-info">
+                <a href="https://www.instagram.com/mafia_holidays_official?igsh=OTF1Y3V0eGVqOHRo" class="contact-item" target="_blank">
+                    <i data-lucide="instagram"></i>
+                    <span>Instagram</span>
+                </a>
+                <a href="tel:+919363505598" class="contact-item">
+                    <i data-lucide="phone"></i>
+                    <span>93635 05598</span>
+                </a>
+            </div>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="script.js" defer></script>
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+    </script>
+</body>
+</html>
