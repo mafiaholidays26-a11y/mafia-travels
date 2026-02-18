@@ -1,8 +1,8 @@
-console.log("Mafiya Holidays: script.js is loading...");
+console.log("Mafia Holidays: script.js is loading...");
 
 // Wait for DOM to be fully loaded
 document.addEventListener("DOMContentLoaded", () => {
-    console.log("Mafiya Holidays: DOM is ready.");
+    console.log("Mafia Holidays: DOM is ready.");
 
     // --- CONFIGURATION ---
     
@@ -20,19 +20,19 @@ document.addEventListener("DOMContentLoaded", () => {
         emailjs.init({
             publicKey: EMAILJS_PUBLIC_KEY,
         });
-        console.log("Mafiya Holidays: EmailJS Initialized.");
+        console.log("Mafia Holidays: EmailJS Initialized.");
     }
 
     // --- FORM HANDLING ---
     const tripForm = document.getElementById("tripForm");
     if (!tripForm) {
-        console.error("Mafiya Holidays Error: Could not find #tripForm!");
+        console.error("Mafia Holidays Error: Could not find #tripForm!");
         return;
     }
 
     tripForm.addEventListener("submit", async (event) => {
         event.preventDefault();
-        console.log("Mafiya Holidays: Form submit intercepted.");
+        console.log("Mafia Holidays: Form submit intercepted.");
 
         // Check Libraries
         if (!window.supabase || !window.emailjs) {
@@ -65,18 +65,18 @@ document.addEventListener("DOMContentLoaded", () => {
             submitBtn.disabled = true;
 
             // 1. Save to Supabase
-            console.log("Mafiya Holidays: Saving to Supabase...");
+            console.log("Mafia Holidays: Saving to Supabase...");
             const { error: dbError } = await supabaseClient.from("trips").insert([formData]);
             
             if (dbError) {
                 console.error("Supabase Error Details:", dbError);
                 throw new Error("Supabase Database Error: " + dbError.message);
             }
-            console.log("Mafiya Holidays: Saved to Supabase successfully.");
+            console.log("Mafia Holidays: Saved to Supabase successfully.");
 
             // 2. Send via EmailJS (if configured)
             if (EMAILJS_PUBLIC_KEY !== "") {
-                console.log("Mafiya Holidays: Sending EmailJS notification...");
+                console.log("Mafia Holidays: Sending EmailJS notification...");
                 const emailParams = {
                     group_name: formData.group_name,
                     college_name: formData.college_name,
@@ -93,7 +93,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 try {
                     const emailResponse = await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, emailParams);
-                    console.log("Mafiya Holidays: Email successfully sent!", emailResponse.status, emailResponse.text);
+                    console.log("Mafia Holidays: Email successfully sent!", emailResponse.status, emailResponse.text);
                 } catch (emailErr) {
                     console.error("Detailed EmailJS Error:", emailErr);
                     // Extract the specific error message from EmailJS
@@ -124,5 +124,5 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    console.log("Mafiya Holidays: Setup complete.");
+    console.log("Mafia Holidays: Setup complete.");
 });
